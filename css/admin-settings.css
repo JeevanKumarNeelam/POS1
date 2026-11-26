@@ -1,0 +1,522 @@
+/* admin-settings.css – Settings page styles */
+
+/* ====== SETTINGS GRID ====== */
+.settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  flex: 1;
+  align-content: start;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.settings-grid::-webkit-scrollbar {
+  width: 5px;
+}
+.settings-grid::-webkit-scrollbar-track {
+  background: #f0f2f5;
+}
+.settings-grid::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+}
+
+/* ====== SETTINGS CARD ====== */
+.settings-card {
+  background: #fafcff;
+  border: 1.5px solid #e4e8ed;
+  padding: 24px 28px;
+  display: flex;
+  flex-direction: column;
+}
+
+.settings-card.full-width {
+  grid-column: 1 / -1;
+}
+
+.settings-card h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 6px;
+}
+
+.settings-desc {
+  font-size: 13px;
+  color: #6b7a8f;
+  margin-bottom: 16px;
+}
+
+/* ====== STACKED CARD (Order ID + Clear Orders + Clear Annual) ====== */
+.stacked-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 20px 24px;
+}
+
+.section-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-block:first-child {
+  padding-bottom: 16px;
+}
+
+.section-block.danger-section {
+  padding-top: 16px;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1.5px solid #eef2f7;
+  margin: 0 0 16px 0;
+  width: 100%;
+}
+
+/* ====== SETTINGS INFO ====== */
+.settings-info {
+  display: flex;
+  gap: 12px;
+  padding: 10px 0;
+  margin-bottom: 16px;
+  border-top: 1px solid #eef2f7;
+  border-bottom: 1px solid #eef2f7;
+}
+
+.settings-info .label {
+  font-weight: 600;
+  color: #4a5a6e;
+  font-size: 14px;
+}
+
+.settings-info .value {
+  font-weight: 700;
+  color: #1a1a1a;
+  font-size: 14px;
+}
+
+.help-text {
+  display: block;
+  font-size: 12px;
+  color: #856404;
+  margin-top: 10px;
+}
+
+.help-text.warning {
+  color: #dc3545;
+}
+
+/* ====== BUTTONS ====== */
+.reset-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: 1.5px solid #dc3545;
+  background: transparent;
+  color: #dc3545;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0;
+  align-self: flex-start;
+}
+
+.reset-btn:hover {
+  background: #dc3545;
+  color: #ffffff;
+}
+
+.save-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: 1.5px solid #28a745;
+  background: transparent;
+  color: #28a745;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0;
+  align-self: flex-start;
+}
+
+.save-btn:hover {
+  background: #28a745;
+  color: #ffffff;
+}
+
+.danger-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: 1.5px solid #dc3545;
+  background: #dc3545;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0;
+  align-self: flex-start;
+}
+
+.danger-btn:hover {
+  background: #c82333;
+  border-color: #c82333;
+}
+
+/* ====== FORM STYLES ====== */
+#cafeSettingsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a5a6e;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.form-group input,
+.form-group select {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  padding: 8px 12px;
+  border: 1.5px solid #e4e8ed;
+  background: #fafcff;
+  color: #1a1a1a;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #1a1a1a;
+}
+
+/* ====== SYSTEM ROLES TABLE ====== */
+.users-table-wrapper {
+  overflow-x: auto;
+  margin-bottom: 16px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.users-table th {
+  background: #f8fafc;
+  color: #1a1a1a;
+  font-weight: 600;
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 2px solid #e4e8ed;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.users-table td {
+  padding: 8px 14px;
+  border-bottom: 1px solid #f0f2f5;
+  vertical-align: middle;
+}
+
+.users-table tr:hover td {
+  background: #f8fafc;
+}
+
+.users-table .role-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  display: inline-block;
+}
+
+.role-badge.admin {
+  background: #1a1a1a;
+  color: #ffffff;
+}
+
+.role-badge.cashier {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.role-badge.kitchen {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.action-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 0;
+  margin-right: 6px;
+}
+
+.action-btn.password-btn {
+  background: #0d6efd;
+  color: #ffffff;
+}
+.action-btn.password-btn:hover {
+  background: #0b5ed7;
+}
+
+.action-btn.delete-user-btn {
+  background: #dc3545;
+  color: #ffffff;
+}
+.action-btn.delete-user-btn:hover {
+  background: #c82333;
+}
+
+/* ====== ADD USER SECTION ====== */
+.add-user-section {
+  border-top: 1px solid #eef2f7;
+  padding-top: 16px;
+  margin-top: 4px;
+}
+
+.add-user-section h4 {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
+.add-user-section .form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: flex-end;
+}
+
+.add-user-section .form-group {
+  margin-bottom: 0;
+}
+
+.add-user-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 8px 20px;
+  border: 1.5px solid #28a745;
+  background: #28a745;
+  color: #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 0;
+  white-space: nowrap;
+}
+
+.add-user-btn:hover {
+  background: #218838;
+  border-color: #218838;
+}
+
+/* ====== MODAL ====== */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-box {
+  background: #ffffff;
+  padding: 32px 36px 28px;
+  max-width: 440px;
+  width: 90%;
+  border: 1px solid #e4e8ed;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.modal-box h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.modal-box .form-group {
+  margin-bottom: 16px;
+}
+
+.modal-box .form-group label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #4a5a6e;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  margin-bottom: 4px;
+}
+
+.modal-box .form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  border: 1.5px solid #e4e8ed;
+  border-radius: 0;
+  background: #fafcff;
+  color: #1a1a1a;
+  outline: none;
+}
+
+.modal-box .form-group input:focus {
+  border-color: #1a1a1a;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 20px;
+}
+
+.modal-btn {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 10px 28px;
+  border: none;
+  cursor: pointer;
+  border-radius: 0;
+  transition: background 0.2s;
+}
+
+.cancel-btn {
+  background: #f0f4fa;
+  color: #3a4a5e;
+}
+.cancel-btn:hover {
+  background: #e2e8f0;
+}
+
+.save-btn {
+  background: #0d6efd;
+  color: #ffffff;
+}
+.save-btn:hover {
+  background: #0b5ed7;
+}
+
+/* ====== RESPONSIVE ====== */
+@media (max-width: 992px) {
+  .settings-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .settings-card.full-width {
+    grid-column: 1;
+  }
+  .add-user-section .form-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .settings-grid {
+    padding-right: 0;
+  }
+  .settings-card {
+    padding: 16px;
+  }
+  .settings-card h3 {
+    font-size: 16px;
+  }
+  .settings-info .label,
+  .settings-info .value {
+    font-size: 13px;
+  }
+  .reset-btn,
+  .save-btn,
+  .danger-btn,
+  .add-user-btn {
+    font-size: 12px;
+    padding: 6px 16px;
+    width: 100%;
+    text-align: center;
+  }
+  .form-group input,
+  .form-group select {
+    font-size: 13px;
+    padding: 6px 10px;
+  }
+  .add-user-section .form-row {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .users-table {
+    font-size: 12px;
+  }
+  .users-table th,
+  .users-table td {
+    padding: 6px 10px;
+  }
+  .action-btn {
+    font-size: 10px;
+    padding: 3px 10px;
+  }
+  .stacked-card {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .settings-card {
+    padding: 12px;
+  }
+  .settings-card h3 {
+    font-size: 15px;
+  }
+  .settings-desc {
+    font-size: 12px;
+  }
+  .settings-info {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .stacked-card {
+    padding: 12px;
+  }
+  .users-table {
+    font-size: 11px;
+  }
+  .users-table th,
+  .users-table td {
+    padding: 4px 6px;
+  }
+}

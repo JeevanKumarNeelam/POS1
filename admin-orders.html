@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Orders – Cafe Barista Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin-common.css" />
+  <link rel="stylesheet" href="css/admin-orders.css" />
+</head>
+<body>
+
+  <div class="admin-container">
+    <!-- ====== SIDEBAR ====== -->
+    <aside class="sidebar">
+      <div class="brand">Admin Panel</div>
+      <nav class="nav-list">
+        <a href="admin.html" class="nav-btn">Dashboard</a>
+        <a href="admin-orders.html" class="nav-btn active">Orders</a>
+        <a href="admin-menu.html" class="nav-btn">Category & Menu</a>
+        <a href="admin-sales.html" class="nav-btn">Sales</a>
+        <a href="admin-settings.html" class="nav-btn">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- ====== MAIN CONTENT ====== -->
+    <main class="content-panel">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div>
+          <h1>Orders</h1>
+          <span class="welcome-text">Manage all orders</span>
+        </div>
+        <div class="top-actions">
+          <span class="live-badge">● Live</span>
+          <button class="logout-top-btn" id="logoutTopBtn">Logout</button>
+        </div>
+      </header>
+
+      <!-- ====== KPI CARDS (5 cards – full width) ====== -->
+      <div class="orders-stats">
+        <div class="stat-card">
+          <span class="stat-label">Total Orders</span>
+          <span class="stat-value" id="totalOrders">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Pending</span>
+          <span class="stat-value" id="pendingOrders">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Preparing</span>
+          <span class="stat-value" id="preparingOrders">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Ready</span>
+          <span class="stat-value" id="readyOrders">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Completed</span>
+          <span class="stat-value" id="completedOrders">0</span>
+        </div>
+      </div>
+
+      <!-- ====== FILTER BAR ====== -->
+      <div class="filter-bar">
+        <select id="orderStatusFilter">
+          <option value="all">All Status</option>
+          <option value="pending">Pending</option>
+          <option value="preparing">Preparing</option>
+          <option value="ready">Ready</option>
+          <option value="completed">Completed</option>
+        </select>
+        <select id="paymentFilter">
+          <option value="all">All Payments</option>
+          <option value="Cash">Cash</option>
+          <option value="Card">Card</option>
+          <option value="UPI">UPI</option>
+        </select>
+        <button class="refresh-btn" id="refreshOrdersBtn">⟳ Refresh</button>
+        <button class="reset-btn" id="resetOrderBtn">↺ Reset Order ID</button>
+        <button class="clear-btn" id="clearOrdersBtn">🗑️ Clear Orders</button>
+        <span class="order-count" id="orderCount">0 orders</span>
+      </div>
+
+      <!-- ====== ORDERS TABLE ====== -->
+      <div class="table-container">
+        <table class="orders-table">
+          <thead>
+            <tr>
+              <th>Order No.</th>
+              <th>Order Date & Time</th>
+              <th>Items Name</th>
+              <th>Quantity</th>
+              <th>Price Per Item</th>
+              <th>Total Price</th>
+              <th>Payment Method</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="ordersBody">
+            <tr>
+              <td colspan="8" class="empty-row">No orders found</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin-orders.js"></script>
+</body>
+</html>

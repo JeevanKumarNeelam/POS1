@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales – Cafe Barista Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin-common.css" />
+  <link rel="stylesheet" href="css/admin-sales.css" />
+</head>
+<body>
+
+  <div class="admin-container">
+    <!-- ====== SIDEBAR ====== -->
+    <aside class="sidebar">
+      <div class="brand">Admin Panel</div>
+      <nav class="nav-list">
+        <a href="admin.html" class="nav-btn">Dashboard</a>
+        <a href="admin-orders.html" class="nav-btn">Orders</a>
+        <a href="admin-menu.html" class="nav-btn">Category & Menu</a>
+        <a href="admin-sales.html" class="nav-btn active">Sales</a>
+        <a href="admin-settings.html" class="nav-btn">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- ====== MAIN CONTENT ====== -->
+    <main class="content-panel">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div>
+          <h1>Sales</h1>
+          <span class="welcome-text">Revenue overview</span>
+        </div>
+        <div class="top-actions">
+          <span class="live-badge">● Live</span>
+          <button class="logout-top-btn" id="logoutTopBtn">Logout</button>
+        </div>
+      </header>
+
+      <!-- ====== 3 KPI CARDS – Different Colors ====== -->
+      <div class="sales-stats">
+        <div class="stat-card card-today">
+          <span class="stat-label">Today Revenue</span>
+          <span class="stat-value" id="todaySales">₹0</span>
+        </div>
+        <div class="stat-card card-month">
+          <span class="stat-label">This Month</span>
+          <span class="stat-value" id="monthSales">₹0</span>
+        </div>
+        <div class="stat-card card-annual">
+          <span class="stat-label">Annual Revenue</span>
+          <span class="stat-value" id="totalSales">₹0</span>
+        </div>
+      </div>
+
+      <!-- ====== SALES TABLE ====== -->
+      <div class="sales-table-section">
+        <div class="table-header">
+          <h3>Daily Sales Summary</h3>
+          <span class="order-count" id="salesCount">0 days</span>
+          <div class="action-buttons">
+            <button class="refresh-btn" id="refreshSalesBtn">⟳ Refresh</button>
+            <button class="export-btn" id="exportSalesBtn">📥 Export</button>
+            <button class="reset-month-btn" id="resetMonthBtn">🗓️ Reset Month</button>
+          </div>
+        </div>
+        <div class="table-container">
+          <table class="sales-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Date</th>
+                <th>Day</th>
+                <th>Cash</th>
+                <th>Card</th>
+                <th>UPI</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody id="salesBody">
+              <tr>
+                <td colspan="7" class="empty-row">No sales data available</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin-sales.js"></script>
+</body>
+</html>

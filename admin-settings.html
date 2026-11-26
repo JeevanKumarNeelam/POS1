@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings – Cafe Barista Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin-common.css" />
+  <link rel="stylesheet" href="css/admin-settings.css" />
+</head>
+<body>
+
+  <div class="admin-container">
+    <!-- ====== SIDEBAR ====== -->
+    <aside class="sidebar">
+      <div class="brand">Admin Panel</div>
+      <nav class="nav-list">
+        <a href="admin.html" class="nav-btn">Dashboard</a>
+        <a href="admin-orders.html" class="nav-btn">Orders</a>
+        <a href="admin-menu.html" class="nav-btn">Category & Menu</a>
+        <a href="admin-sales.html" class="nav-btn">Sales</a>
+        <a href="admin-settings.html" class="nav-btn active">Settings</a>
+      </nav>
+    </aside>
+
+    <!-- ====== MAIN CONTENT ====== -->
+    <main class="content-panel">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div>
+          <h1>Settings</h1>
+          <span class="welcome-text">System configuration</span>
+        </div>
+        <div class="top-actions">
+          <span class="live-badge">● Live</span>
+          <button class="logout-top-btn" id="logoutTopBtn">Logout</button>
+        </div>
+      </header>
+
+      <!-- Settings Grid -->
+      <div class="settings-grid">
+
+        <!-- ====== ORDER ID MANAGEMENT + CLEAR ORDERS (Stacked) ====== -->
+        <div class="settings-card stacked-card">
+          <!-- Order ID Management -->
+          <div class="section-block">
+            <h3>Order ID Management</h3>
+            <p class="settings-desc">Reset the order ID counter to start from 001 for today.</p>
+            <div class="settings-info">
+              <span class="label">Next Order ID:</span>
+              <span class="value" id="nextOrderDisplay">Loading...</span>
+            </div>
+            <button class="reset-btn" id="resetOrderBtn">↺ Reset Order ID</button>
+            <span class="help-text">⚠️ This will only reset the counter. Existing orders remain unchanged.</span>
+          </div>
+
+          <!-- Clear All Orders (below) -->
+          <div class="section-block danger-section">
+            <hr class="section-divider" />
+            <h3 style="color: #dc3545;">Clear All Orders</h3>
+            <p class="settings-desc">Delete all orders from the system. This cannot be undone.</p>
+            <button class="danger-btn" id="clearOrdersBtn">🗑️ Clear All Orders</button>
+            <span class="help-text warning">⚠️ This will permanently delete all orders.</span>
+          </div>
+
+          <!-- NEW: Clear Annual Sales -->
+          <div class="section-block danger-section">
+            <hr class="section-divider" />
+            <h3 style="color: #dc3545;">Clear Annual Sales</h3>
+            <p class="settings-desc">Delete all sales data (orders and summaries) for the year. This cannot be undone.</p>
+            <button class="danger-btn" id="clearAnnualBtn">🗑️ Clear Annual Sales</button>
+            <span class="help-text warning">⚠️ This will delete all orders and sales summaries.</span>
+          </div>
+        </div>
+
+        <!-- ====== CAFE SETTINGS ====== -->
+        <div class="settings-card">
+          <h3>Cafe Settings</h3>
+          <p class="settings-desc">Update your cafe information displayed on bills.</p>
+
+          <form id="cafeSettingsForm">
+            <div class="form-group">
+              <label for="cafeName">Cafe Name</label>
+              <input type="text" id="cafeName" placeholder="Enter cafe name" />
+            </div>
+            <div class="form-group">
+              <label for="cafeAddress">Address</label>
+              <input type="text" id="cafeAddress" placeholder="Enter cafe address" />
+            </div>
+            <div class="form-group">
+              <label for="cafePhone">Phone Number</label>
+              <input type="text" id="cafePhone" placeholder="Enter phone number" />
+            </div>
+            <div class="form-group">
+              <label for="cafeGst">GSTIN</label>
+              <input type="text" id="cafeGst" placeholder="Enter GSTIN" />
+            </div>
+            <button type="submit" class="save-btn">💾 Save Settings</button>
+          </form>
+        </div>
+
+        <!-- ====== SYSTEM ROLES ====== -->
+        <div class="settings-card full-width">
+          <h3>System Roles</h3>
+          <p class="settings-desc">Manage users and change passwords.</p>
+
+          <div class="users-table-wrapper">
+            <table class="users-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Role</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="usersTableBody">
+                <!-- Rendered by JavaScript -->
+              </tbody>
+            </table>
+          </div>
+
+          <div class="add-user-section">
+            <h4>Add New User</h4>
+            <form id="addUserForm">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="newUsername">Username</label>
+                  <input type="text" id="newUsername" placeholder="Enter username" required />
+                </div>
+                <div class="form-group">
+                  <label for="newPassword">Password</label>
+                  <input type="text" id="newPassword" placeholder="Enter password" required />
+                </div>
+                <div class="form-group">
+                  <label for="newRole">Role</label>
+                  <select id="newRole">
+                    <option value="admin">Admin</option>
+                    <option value="cashier">Cashier</option>
+                    <option value="kitchen">Kitchen</option>
+                  </select>
+                </div>
+                <div class="form-group" style="justify-content:flex-end;">
+                  <button type="submit" class="add-user-btn">+ Add User</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ====== CHANGE PASSWORD MODAL ====== -->
+  <div class="modal-overlay" id="passwordModal">
+    <div class="modal-box">
+      <h2>Change Password</h2>
+      <form id="passwordForm">
+        <div class="form-group">
+          <label for="currentPassword">Current Password</label>
+          <input type="password" id="currentPassword" placeholder="Enter current password" required />
+        </div>
+        <div class="form-group">
+          <label for="newPasswordInput">New Password</label>
+          <input type="password" id="newPasswordInput" placeholder="Enter new password" required />
+        </div>
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input type="password" id="confirmPassword" placeholder="Confirm new password" required />
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="modal-btn cancel-btn" id="passwordCancelBtn">Cancel</button>
+          <button type="submit" class="modal-btn save-btn" id="passwordSaveBtn">Update Password</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/admin-settings.js"></script>
+</body>
+</html>

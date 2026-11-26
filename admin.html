@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard – Cafe Barista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin-common.css" />
+  <link rel="stylesheet" href="css/admin.css" />
+</head>
+<body>
+
+  <div class="admin-container">
+    <!-- ====== SIDEBAR ====== -->
+    <aside class="sidebar">
+      <div class="brand">Admin Panel</div>
+      <nav class="nav-list">
+        <a href="admin.html" class="nav-btn active">Dashboard</a>
+        <a href="admin-orders.html" class="nav-btn">Orders</a>
+        <a href="admin-menu.html" class="nav-btn">Category & Menu</a>
+        <a href="admin-sales.html" class="nav-btn">Sales</a>
+        <a href="admin-settings.html" class="nav-btn">Settings</a>
+      </nav>
+      <!-- LOGOUT AREA REMOVED -->
+    </aside>
+
+    <!-- ====== MAIN CONTENT ====== -->
+    <main class="content-panel">
+      <!-- Top Bar -->
+      <header class="top-bar">
+        <div>
+          <h1>Dashboard</h1>
+          <span class="welcome-text">Welcome, admin</span>
+        </div>
+        <div class="top-actions">
+          <span class="live-badge">● Live</span>
+          <button class="logout-top-btn" id="logoutTopBtn">Logout</button>
+        </div>
+      </header>
+
+      <!-- KPI Cards -->
+      <div class="stats-grid" id="statsGrid">
+        <div class="stat-card">
+          <span class="stat-label">Total Revenue</span>
+          <span class="stat-value" id="totalRevenue">₹0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Total Orders</span>
+          <span class="stat-value" id="totalOrders">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Cash</span>
+          <span class="stat-value" id="cashOrders">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Card</span>
+          <span class="stat-value" id="cardOrders">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">UPI</span>
+          <span class="stat-value" id="upiOrders">0</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Point of Sale – Cafe Barista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/pos-style.css" />
+</head>
+<body>
+
+  <div class="pos-container">
+    <!-- LEFT: CATEGORIES -->
+    <aside class="categories-panel">
+      <div class="brand">Cafe Barista</div>
+      <nav class="category-list" id="categoryList">
+        <!-- Categories injected by JavaScript -->
+      </nav>
+      <div class="logout-area">
+        <button class="logout-btn">Logout</button>
+      </div>
+    </aside>
+
+    <!-- MIDDLE: ITEMS -->
+    <main class="items-panel">
+      <header class="items-header">
+        <div class="header-left">
+          <h1>Point of Sale</h1>
+          <button class="refresh-menu-btn" id="refreshMenuBtn">⟳ Refresh</button>
+        </div>
+        <div class="datetime" id="datetime"></div>
+      </header>
+      <div class="items-grid" id="itemsGrid">
+        <!-- Items injected by JavaScript -->
+      </div>
+    </main>
+
+    <!-- RIGHT: BILLING -->
+    <section class="billing-panel">
+      <div class="order-header">
+        <div>
+          <h2>Current Order</h2>
+          <span class="order-id" id="orderIdDisplay">#00000000-000</span>
+        </div>
+        <button class="clear-btn" id="clearCartBtn">Clear</button>
+      </div>
+
+      <div class="order-body" id="orderBody">
+        <div class="empty-cart" id="emptyCart">No items in cart</div>
+        <ul class="cart-list" id="cartList"></ul>
+      </div>
+
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">₹0.00</span>
+      </div>
+
+      <div class="order-footer">
+        <button class="action-btn hold-btn" id="holdBtn">Hold</button>
+        <button class="action-btn recall-btn" id="recallBtn">Recall</button>
+        <button class="action-btn payment-btn" id="paymentBtn">Payment</button>
+        <button class="action-btn place-btn" id="placeOrderBtn">Place Order</button>
+        <button class="action-btn print-btn" id="printBtn">Print</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- PAYMENT MODAL -->
+  <div class="modal-overlay" id="paymentModal">
+    <div class="modal-box">
+      <h2>Select Payment Method</h2>
+      <div class="payment-options">
+        <button class="payment-method" data-method="Cash">Cash</button>
+        <button class="payment-method" data-method="Card">Card</button>
+        <button class="payment-method" data-method="UPI">UPI</button>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn payment-done" id="paymentDoneBtn">Payment Done</button>
+        <button class="modal-btn close-modal" id="closePaymentModalBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- RECALL MODAL -->
+  <div class="modal-overlay" id="recallModal">
+    <div class="modal-box recall-modal">
+      <h2>Held Orders</h2>
+      <div id="heldOrdersContainer">
+        <p style="text-align:center; color:#8a9aa8;">No orders on hold.</p>
+      </div>
+      <div class="modal-actions">
+        <button class="modal-btn close-modal" id="closeRecallModalBtn">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/pos-script.js"></script>
+</body>
+</html>

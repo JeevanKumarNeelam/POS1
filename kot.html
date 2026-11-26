@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kitchen Order Ticket – Cafe Barista</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/kot-style.css" />
+</head>
+<body>
+
+  <div class="kot-container">
+    <!-- LEFT: SIDEBAR -->
+    <aside class="sidebar">
+      <div class="brand">Cafe Barista</div>
+      <nav class="nav-list">
+        <button class="nav-btn active" data-filter="all">All Orders</button>
+        <button class="nav-btn" data-filter="pending">Pending</button>
+        <button class="nav-btn" data-filter="preparing">Preparing</button>
+        <button class="nav-btn" data-filter="ready">Ready</button>
+        <button class="nav-btn" data-filter="completed">Completed</button>
+      </nav>
+      <div class="logout-area">
+        <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+      </div>
+    </aside>
+
+    <!-- MAIN: ORDERS -->
+    <main class="orders-panel">
+      <header class="orders-header">
+        <div>
+          <h1>Kitchen Order Ticket</h1>
+          <span class="subtitle" id="orderCount">0 orders</span>
+        </div>
+        <div class="header-actions">
+          <span class="live-badge">● Live</span>
+          <button class="refresh-btn" id="refreshBtn">⟳ Refresh</button>
+        </div>
+      </header>
+
+      <!-- KPI CARDS -->
+      <div class="kpi-grid">
+        <div class="kpi-card kpi-total">
+          <span class="kpi-label">Total Orders</span>
+          <span class="kpi-value" id="kpiTotal">0</span>
+        </div>
+        <div class="kpi-card kpi-pending">
+          <span class="kpi-label">Pending</span>
+          <span class="kpi-value" id="kpiPending">0</span>
+        </div>
+        <div class="kpi-card kpi-preparing">
+          <span class="kpi-label">Preparing</span>
+          <span class="kpi-value" id="kpiPreparing">0</span>
+        </div>
+        <div class="kpi-card kpi-ready">
+          <span class="kpi-label">Ready</span>
+          <span class="kpi-value" id="kpiReady">0</span>
+        </div>
+        <div class="kpi-card kpi-completed">
+          <span class="kpi-label">Completed</span>
+          <span class="kpi-value" id="kpiCompleted">0</span>
+        </div>
+      </div>
+
+      <!-- ORDERS GRID -->
+      <div class="orders-grid" id="ordersGrid">
+        <div class="empty-state" id="emptyState">
+          <span class="empty-icon">🍽️</span>
+          <p>No orders yet</p>
+          <span class="empty-sub">Orders from POS will appear here</span>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="js/kot-script.js"></script>
+</body>
+</html>
